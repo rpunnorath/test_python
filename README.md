@@ -1,6 +1,7 @@
-# test_python
+
 I used PyTest framework with Selenium WebDriver to automate the eCommerce site. Please follow the virtual environment and PyCharm setup details in order to run the tests.
-Prerequisites for Selenium testing with Python & PyTest
+
+#Prerequisites for Selenium testing with Python & PyTest:
 For using the PyTest framework, Python needs to be installed on the machine from here: https://www.python.org/downloads/. I have used the latest version Python 3.9.0. 
 
 Since PyTest will be used for automated browser testing, Selenium WebDriver for the browser under test needs to be installed. I used chrome driver for my tests.
@@ -33,7 +34,7 @@ I used PyCharm IDE for all my Automation tests, Page objects etc. You will need 
 https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html#packages
 
 
-Test Coverage area:
+#Test Coverage area:
 The following are the areas that have the coverage: 
 •	Account creation 
 •	Login 
@@ -53,7 +54,7 @@ Also, I kept all the test data like URL of the application, search term etc., in
 I used ‘Implicit Wait’ in script that would wait while searching for any web element on the page, and also explicit wait to explicitly wait for an element or a condition to happen, for example: WebDriverWait and Expected_Conditions.
 
 
-Framework Setup:
+#Framework Setup:
 I have the main folder eCommerce. Under that I have the sub folders automation_ui, automation_api, pageobejcts, helpers and conftest.py file. The UI test cases are under automation_ui. The page objects are under the file page_objects. The fixtures are in conftest.py and the api test cases in future can be put under automation_api: this folder is empty now. There is also a folder called helpers, which can be used to put any helper method for api and ui tests. 
 
 base_page.py: Base Page Class is the one from which classes of all other pages inherit. We will therefore create it first, populate it with methods for the most common actions that are expected to be performed on any page in the application.
@@ -71,7 +72,7 @@ testdata.py: The test data that are used in the tests are added to this page. As
 Conftest.py: All fixtures used by the tests can be put in conftest.py that can be called by tests. My tests uses the fixture chrome_driver_init() that will create the `driver`, using ChromeDriverManager() to download and install chrome and we will close the browser at the end of the test. Alternatively, you can also download and pass the chromedriver executable path to webdriver.Chrome() method. 
 
 
-Tests walkthrough:
+#Tests walkthrough:
 Step 1. The necessary modules are imported, namely PyTest, Selenium, time, classes etc.
 
 Step 2. Using the fixture: chrome_driver_init(),the Chrome WebDriver is instantiated. The test then creates an instance of the class and in the class __init__() method the URL is passed using the .get method in Selenium.
@@ -86,7 +87,7 @@ You can also run a specific test under a class like the example below:
 pytest test_file.py::TestClass::test_method
 
 
-Potential Options/Improvements:
+#Potential Options/Improvements:
 
 •	Putting test data in .json file and move them to aws/s3 bucket or dynamic loading
 •	Automation for api functionality is not added as of now but can be a great addition as the api tests runs faster and hence reduces the time taken by UI tests and their timeouts. UI tests, depending on how fast the browser loads and detects locator, can sometimes result in timeouts and will need more maintenance to fix those failures. As of now time.sleep, implicit and explicit waits etc. handle that to some extent. 
@@ -108,7 +109,7 @@ Potential Options/Improvements:
 In summary, there are a number of pages like contact, header, footer links and my account functions and many more that can be automated when needed. 
 
 
-Please find my test run results below:
+#Test results:
 
 
 ====================================== test session starts =========================================================
