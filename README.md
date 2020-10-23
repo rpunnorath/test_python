@@ -10,7 +10,7 @@ It is important to create a virtual environment and activate it before doing any
 https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/ 
 
 
-1. Setup the pip package manager:
+*.Setup the pip package manager:
 Check to see if your Python installation has pip. 
 Enter the following in your terminal:pip -h,If you see the help text for pip then you have pip installed, otherwise download and install pip. 
  
