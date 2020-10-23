@@ -53,7 +53,7 @@ Also, I kept all the test data like URL of the application, search term etc., in
 I used ‘Implicit Wait’ in script that would wait while searching for any web element on the page, and also explicit wait to explicitly wait for an element or a condition to happen, for example: WebDriverWait and Expected_Conditions.
 
 
-Framework Setup
+Framework Setup:
 I have the main folder eCommerce. Under that I have the sub folders automation_ui, automation_api, pageobejcts, helpers and conftest.py file. The UI test cases are under automation_ui. The page objects are under the file page_objects. The fixtures are in conftest.py and the api test cases in future can be put under automation_api: this folder is empty now. There is also a folder called helpers, which can be used to put any helper method for api and ui tests. 
 
 base_page.py: Base Page Class is the one from which classes of all other pages inherit. We will therefore create it first, populate it with methods for the most common actions that are expected to be performed on any page in the application.
