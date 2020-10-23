@@ -82,9 +82,9 @@ Once the web elements are located using the appropriate Selenium methods [i.e. f
 
 
 Command to run tests:
-py.test  filename_to_run/directory_to_run
+•	py.test  filename_to_run/directory_to_run
 Example: py.test  ecommerce/automaiton_ui/test_login.py
-You can also run a specific test under a class like the example below:
+•	You can also run a specific test under a class:
 pytest test_file.py::TestClass::test_method
 
 
