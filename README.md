@@ -1,3 +1,4 @@
+This is a work in progress. Details of the features currently automated can be found here:
 
 I used PyTest framework with Selenium WebDriver to automate the eCommerce site. Please follow the virtual environment and PyCharm setup details in order to run the tests.
 
