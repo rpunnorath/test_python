@@ -1,6 +1,6 @@
 This is a work in progress. Details of the features currently automated can be found here:
 
-I used PyTest framework with Selenium WebDriver to automate the eCommerce site. Please follow the virtual environment and PyCharm setup details in order to run the tests.
+I used PyTest framework with Selenium WebDriver to automate the eCommerce site I used here. Please follow the virtual environment and PyCharm setup details in order to run the tests.
 
 # Prerequisites for Selenium testing with Python & PyTest:
 For using the PyTest framework, Python needs to be installed on the machine from here: https://www.python.org/downloads/. I have used the latest version Python 3.9.0. 
@@ -47,7 +47,7 @@ The following are the areas that have the coverage:
 •	Checkout 
 
 
-We start with making class for each of these pages. We will create a Base Page class which all of these page classes would inherit. After doing that, next task would be to put the locators and methods related to different pages in their respective classes. There are two approaches to maintain the locators. First is keeping all the locators specific to a page in its own class and the other is to keep locators of all pages at a common place. I found that it is better to put locators in its own page class for ease of tracking. After the page classes, locators and test data are in place, the next task would be of writing the test scripts/cases.
+I started by making class for each of these pages then I created a Base Page class which all of these page classes would inherit. After doing that, next task would be to put the locators and methods related to different pages in their respective classes. There are two approaches to maintain the locators. First is keeping all the locators specific to a page in its own class and the other is to keep locators of all pages at a common place. I found that it is better to put locators in its own page class for ease of tracking. After the page classes, locators and test data are in place, the next task would be of writing the test scripts/cases.
 
 Executing the PyTest command (without mentioning a filename) on the terminal will run all the Python files that have filenames starting with ‘test_*’ or ending with ‘*_test’. These files are automatically identified as test files by the PyTest framework. The framework also mandates that the test methods should start with ‘test’, else the method will not be considered for execution. 
 
@@ -57,7 +57,7 @@ I used ‘Implicit Wait’ in script that would wait while searching for any web
 
 
 ## Framework Setup:
-I have the main folder eCommerce. Under that I have the sub folders automation_ui, automation_api, pageobejcts, helpers and conftest.py file. The UI test cases are under automation_ui. The page objects are under the file page_objects. The fixtures are in conftest.py and the api test cases in future can be put under automation_api: this folder is empty now. There is also a folder called helpers, which can be used to put any helper method for api and ui tests. 
+I have the main folder eCommerce. Under that I have the sub folders automation_ui, pageobejcts, helpers and conftest.py file. The UI test cases are under automation_ui. The page objects are under the file page_objects. The fixtures are in conftest.py and the api test cases in future can be put under automation_api: this folder is empty now. There is also a folder called helpers, which can be used to put any helper method for api and ui tests. 
 
 base_page.py: Base Page Class is the one from which classes of all other pages inherit. We will therefore create it first, populate it with methods for the most common actions that are expected to be performed on any page in the application.
 
@@ -94,21 +94,14 @@ Once the web elements are located using the appropriate Selenium methods [i.e. f
 •	Putting test data in .json file and move them to aws/s3 bucket or dynamic loading
 •	Automation for api functionality is not added as of now but can be a great addition as the api tests runs faster and hence reduces the time taken by UI tests and their timeouts. UI tests, depending on how fast the browser loads and detects locator, can sometimes result in timeouts and will need more maintenance to fix those failures. As of now time.sleep, implicit and explicit waits etc. handle that to some extent. 
 
-•	I see that there are a number of test scenarios that can be automated for each of the pages that I worked on. Because of time constraints I had to cut short to cover the basic functionality/happy path testing for the scenarios that I need to cover. But I did include some negative scenarios using parametrize to demonstrate how we can add some negative tests for test_login.py. Every test can have classes for positive and negative scenarios so as to make sure that we cover all the possible functionalities and to ensure they work as expected. 
+•	test_search.py is searching only one item for the test. However, it can be parametrized to search for many items. It can also be checked for their click function to make sure those items can be browsed, the lists of items are viewable and can perform additional functionalities on it, to name few. 
 
-•	test_browsing_categories.py is hovering over and browsing all the main categories but those categories have multiple links that can be automated to make sure they work as expected. 
-
-•	test_search.py is searching only one item for the test. However, it can be parametrized to search for many items. It can also be checked for their click function to make sure those items can be browsed, the lists of items are viewable and can perform additional functionalities on it, to name few. Additionally, grid, list layout, sorting functionality, top sellers and the filters etc. can also be tested.
-
-•	test_add_to_cart.py: I have automated the functionality from user’s perspective that they come to site, browse and then add item to cart for checkout. It can also be automated as they sign in, browse and checkout. A few more items from multiple images and links can be automated to verify that they can be added to cart.
+•	test_add_to_cart.py: I have automated the functionality from user’s perspective that they come to site, browse and then add item to cart for checkout.
 
 •	Cart has additional functionalities like add count, delete count etc. which I verified. This can be designed as a test on its own to make sure each item’s price varies when we add or delete or modify. The shipping tab can have additional tests to make sure that it verifies the shipping charge, type etc. The address tab can also be tested to verify adding of new addresses/update etc.
 
-•	The payment tab can have multiple tests to cover different payment methods.
-
 •	I have covered all the tests with their main functionalities, however there are areas that can improve the test coverage and design lot more scenarios as I mentioned above.
 
-In summary, there are a number of pages like contact, header, footer links and my account functions and many more that can be automated when needed. 
 
 
 ## Test results:
